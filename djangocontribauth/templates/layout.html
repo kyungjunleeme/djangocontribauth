@@ -5,15 +5,21 @@
     <title>Kyungjun Blog</title>
 </head>
 <body>
-    <h1>Kyungjun Blog</h1>
+	<h1>
+        <a href="{% url "root" %}">Kyungjun Blog</a>
+    </h1>
 
-	{% if user.is_authenticated %}
-		{{ user }}
-		로그아웃
-	{% else %}
-    	회원가입
-		<a href="{% url "login" %}?next={{ request.path }}">로그인</a>
-	{% endif %}
+    {% if user.is_authenticated %}
+        <a href="{% url "profile" %}">{{ user }}</a>
+        <a href="{% url "logout" %}?next={{ request.path }}" onclick="return confirm('Are you sure?');">로그아웃</a>
+    {% else %}
+        회원가입
+        <a href="{% url "login" %}?next={{ request.path }}">로그인</a>
+    {% endif %}
+
+    {% block content %}
+    {% endblock %}
+
 
     <hr/>
     &copy; 2021. Kyungjun Lee
