@@ -7,11 +7,13 @@
 <body>
     <h1>Kyungjun Blog</h1>
 
-    회원가입, 로그인, 로그아웃
-    <hr/>
-
-    {% block content %}
-    {% endblock %}
+	{% if user.is_authenticated %}
+		{{ user }}
+		로그아웃
+	{% else %}
+    	회원가입
+		<a href="{% url "login" %}?next={{ request.path }}">로그인</a>
+	{% endif %}
 
     <hr/>
     &copy; 2021. Kyungjun Lee
