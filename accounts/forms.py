@@ -1,5 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm, UsernameField
 from django.core.validators import validate_email
+from django.forms.widgets import TextInput
 
 
 class SignupForm(UserCreationForm):
@@ -34,7 +35,7 @@ class SignupForm(UserCreationForm):
         self.fields["username"].validators = [validate_email]
         self.fields["username"].help_text = "Enter Email Format"
         self.fields["username"].label = "Email"
-        # self.fields["username"].widget = "Email"
+        # self.fields["username"].widget = TextInput(attrs={"autofocus": True})
 
     def save(self, commit=True):
         user = super().save(commit=False)
