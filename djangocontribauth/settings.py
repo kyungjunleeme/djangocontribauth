@@ -105,7 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "en-us"  # 현재 시스템에 대한 디폴트 언어설정 (사용자마다 다르게 적용 가능)
 
 TIME_ZONE = "UTC"
 
@@ -123,11 +123,9 @@ STATIC_URL = "/static/"
 
 from django.urls import reverse_lazy
 
-LOGIN_URL = reverse_lazy('login')
+LOGIN_URL = reverse_lazy("login")
 # LOGIN_REDIRECT_URL = reverse_lazy('profile')
-LOGOUT_REDIRECT_URL = reverse_lazy('login')
-
-
+LOGOUT_REDIRECT_URL = reverse_lazy("login")
 
 
 # Default primary key field type
