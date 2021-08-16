@@ -17,6 +17,14 @@
         <a href="{% url "login" %}?next={{ request.path }}">로그인</a>
     {% endif %}
 
+    {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
     {% block content %}
     {% endblock %}
 

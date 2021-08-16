@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserCreationForm, UsernameField
+from django.contrib.auth.forms import UserCreationForm, UsernameField, PasswordResetForm
 from django.core.validators import validate_email
 from django.forms.widgets import TextInput
 
@@ -50,3 +50,12 @@ class SignupForm(UserCreationForm):
     #     if value:
     #         validate_email(value)
     #     return value
+
+
+# class TestForm(PasswordResetForm):
+#     def __init__(self, *args, **kwargs):
+#         super().__init__(*args, **kwargs)
+
+#     def clean_email(self):
+#         email = self.cleaned_data["email"]
+#         return email

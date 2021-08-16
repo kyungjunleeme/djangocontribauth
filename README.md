@@ -6,3 +6,6 @@ django.contrib.auth 분석
 
 cf) 이 분도 강의듣고 쓰신 듯
 https://planjang.tistory.com/158
+
+cf) 참고
+https://learndjango.com/tutorials/django-password-reset-tutorial
