@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth import login as auth_login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import PasswordResetForm
 from django.contrib.auth.tokens import default_token_generator
 from django.contrib.auth.views import PasswordResetView
 from django.http import Http404
@@ -82,14 +83,18 @@ class SignupView(CreateView):
         return redirect(self.get_success_url())
 
 
-signup = SignupView.as_view()
+# signup = SignupView.as_view()
 
 # RequestLoginViaUrlView 이 self
 class RequestLoginViaUrlView(PasswordResetView):
+    # form_class = TestForm
     template_name = "accounts/request_login_via_url_form.html"
-    title = _("Using E-mail")  # 반영이 안 됨 ㅜ ㅅ ㅜ
+    subject_template_name = (
+        "accounts/login_auth_subject.txt"  # registration/password_reset_subject.txt
+    )
     email_template_name = "accounts/login_via_url.html"
     success_url = settings.LOGIN_URL
+    # Note: may have been skipped because of "justMyCode" option (default == true). Try setting "justMyCode": false in the debug configuration (e.g., launch.json).
 
 
 # request_login_via_url = RequestLoginViaUrlView.as_view()

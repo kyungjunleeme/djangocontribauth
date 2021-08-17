@@ -56,6 +56,8 @@ class SignupForm(UserCreationForm):
 #     def __init__(self, *args, **kwargs):
 #         super().__init__(*args, **kwargs)
 
-#     def clean_email(self):
-#         email = self.cleaned_data["email"]
-#         return email
+#     def save(self, *args, **kwargs):
+#         if self.title == "Using E-mail":
+#             super().save(*args, **kwargs)
+#         else:
+#             return
