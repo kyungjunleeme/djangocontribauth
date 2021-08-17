@@ -9,3 +9,5 @@ https://planjang.tistory.com/158
 
 cf) 참고
 https://learndjango.com/tutorials/django-password-reset-tutorial
+
+1) 암호 변경 Logic에서 이전에 입력했던 암호 저장해서 확인하는 기능 구현 해보기!
