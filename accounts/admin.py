@@ -1,5 +1,12 @@
 from django.contrib import admin
-from accounts.models import Profile
+from .models import User, Profile
+from .forms import CustomUserForm
+
+
+@admin.register(User)
+class UserAdmin(admin.ModelAdmin):
+    model = User
+    form = CustomUserForm
 
 
 @admin.register(Profile)
