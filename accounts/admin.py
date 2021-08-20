@@ -5,7 +5,8 @@ from .forms import CustomUserForm
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    model = User
+    # pass
+    # model = User
     form = CustomUserForm
 
 

@@ -85,7 +85,7 @@ User = get_user_model()  # "accounts.User" 사용함
 
 
 class CustomUserForm(UserCreationForm):
-    class Meta(UserCreationForm.Meta):
+    class Meta(UserCreationForm.Meta):  # meta 속성도 같이 가져와야 함!
         model = User
         fields = ("email", "people_type")
         error_css_class = "error"

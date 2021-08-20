@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.core.exceptions import ValidationError
 from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.db.models import QuerySet
@@ -155,7 +156,8 @@ class MyPasswordResetConfirmView(PasswordResetConfirmView):
         return super().form_valid(form)
 
 
-def home(request):
+# FBV
+def FbvSignSignupNew(request):
     if request.method == "POST":
         form = CustomUserForm(request.POST)
         print(form)
@@ -167,3 +169,19 @@ def home(request):
     else:
         form = CustomUserForm()
     return render(request, "accounts/home.html", {"form": form})
+
+
+# CBV
+class SignupNewView(CreateView):
+    model = User
+    form_class = CustomUserForm
+    template_name = "accounts/home.html"
+
+    def get_success_url(self) -> str:
+        next_url = self.request.GET.get("next") or "profile"
+        return resolve_url(next_url)
+
+    def form_valid(self, form):
+        user = form.save()
+        auth_login(self.request, user)
+        return redirect(self.get_success_url())
