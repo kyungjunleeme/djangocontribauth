@@ -1,10 +1,19 @@
 from django.contrib import admin
-from blog.models import Post
+from blog.models import Post, Comment, Tag
 
 # Register your models here.
 
+
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title']
-    list_display_links = ['title']
-    search_fields = ['title']
+    pass
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+    pass

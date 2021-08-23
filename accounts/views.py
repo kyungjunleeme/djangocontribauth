@@ -23,7 +23,10 @@ from django.views.generic import CreateView
 from accounts.forms import CustomUserForm
 from django.contrib.auth import get_user_model
 
-User = get_user_model()  # "accounts.User" 사용함
+User = get_user_model()
+
+# from django.conf import settings
+# settings.AUTH_USER_MODEL
 
 
 @login_required  # Logout 상황이면 -> settings.LOGIN_URL 로 이동해준다. 그건 ?next=뒤에 인자값으로 확인 가능
